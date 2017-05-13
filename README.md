@@ -1,11 +1,24 @@
-O nome do app ainda nao ta fixo...
+# README
 
-Board do Trello
-https://trello.com/b/paM4tPSh/nopontoapp
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Seguir essas idéias de contribuicao de projeto openSource
-http://onebitcode.com/projetos-open-source/
+Things you may want to cover:
 
-Gens a serem utilizadas
-http://www.sptrans.com.br/desenvolvedores/APIOlhoVivo/Documentacao.aspx
-https://github.com/rest-client/rest-client
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
