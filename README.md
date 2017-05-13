@@ -1,24 +1,11 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### O nome do app ainda nao ta fixo...
+ 
+#### Board do Trello
+* https://trello.com/b/paM4tPSh/nopontoapp
+ 
+#### Seguir essas idéias de contribuicao de projeto openSource
+* http://onebitcode.com/projetos-open-source/
+ 
+#### Gems a serem utilizadas
+* http://www.sptrans.com.br/desenvolvedores/APIOlhoVivo/Documentacao.aspx
+* https://github.com/rest-client/rest-client
