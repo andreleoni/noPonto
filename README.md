@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/andreleoni/noPonto/badges/gpa.svg)](https://codeclimate.com/github/andreleoni/noPonto) [![Issue Count](https://codeclimate.com/github/andreleoni/noPonto/badges/issue_count.svg)](https://codeclimate.com/github/andreleoni/noPonto)
+
 #### O nome do app ainda nao ta fixo...
  
 #### Board do Trello
