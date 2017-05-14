@@ -18,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'rest-client'
-
+gem 'httpclient'
 
 group :development, :test do
   gem 'byebug', platform: :mri
