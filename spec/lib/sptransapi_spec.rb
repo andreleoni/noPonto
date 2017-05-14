@@ -4,43 +4,38 @@ require './lib/sptransapi'
 TOKEN_CONS = '68c53a13edefd596e8fde8044e9589a76f002fd74866a456b3313ec0815968ed'
 
 RSpec.describe SptransModule::Call do
-  it "has a version number" do
-    expect(SptransModule::VERSION).not_to be nil
-  end
-
-  it "does something useful" do
-    expect(true).to eq(true)
-  end
-
   describe "POST test authorize" do
     it "Api response == 200" do
       instance = SptransModule::Call.new(TOKEN_CONS)
-      expect(instance.authenticate_with_api.parsed_response).to eq(true)
+
+      expect(instance.authenticate_with_api.body).to eq("true")
     end
   end
 
   describe "POST test not authorized" do
     it "Api response == 200" do
-      instance = SptransModule::Call.new(" ")
-      expect(instance.authenticate_with_api.parsed_response).to eq(false)
+      instance = SptransModule::Call.new("asdasdas")
+      expect(instance.authenticate_with_api.body).to eq("false")
     end
   end
 
   describe "GET to_search lines" do
     it "Api response == 200" do
       instance = SptransModule::Call.new(TOKEN_CONS)
-      response = instance.to_search_lines(9000)
+      response = instance.to_search_lines(8000)
 
-      expect(response["code"]).to eq(200)
+      expect(JSON.parse(response.body).is_a? Array).to eq(false)
+      expect(response.status).to eq(401)
     end
   end
 
   describe "GET stop_search" do
     it "Api response == 200" do
       instance = SptransModule::Call.new(TOKEN_CONS)
-      response = instance.stop_search(9000)
+      response = instance.stop_search(8000)
 
-      expect(response["code"]).to eq(200)
+      expect(JSON.parse(response.body).is_a? Array).to eq(false)
+      expect(response.status).to eq(401)
     end
   end
 end
