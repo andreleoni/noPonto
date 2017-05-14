@@ -24,8 +24,8 @@ RSpec.describe SptransModule::Call do
       instance = SptransModule::Call.new(TOKEN_CONS)
       response = instance.to_search_lines(8000)
 
-      expect(JSON.parse(response.body).is_a? Array).to eq(false)
-      expect(response.status).to eq(401)
+      expect(JSON.parse(response.body).is_a? Array).to eq(true)
+      expect(response.status).to eq(200)
     end
   end
 
@@ -34,8 +34,8 @@ RSpec.describe SptransModule::Call do
       instance = SptransModule::Call.new(TOKEN_CONS)
       response = instance.stop_search(8000)
 
-      expect(JSON.parse(response.body).is_a? Array).to eq(false)
-      expect(response.status).to eq(401)
+      expect(JSON.parse(response.body).is_a? Array).to eq(true)
+      expect(response.status).to eq(200)
     end
   end
 end

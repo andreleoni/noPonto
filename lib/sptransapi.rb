@@ -9,6 +9,8 @@ module SptransModule
       self.token = token
       self.access_uri = 'http://api.olhovivo.sptrans.com.br/v0'
       @api_access = HTTPClient.new
+
+       self.authenticate_with_api
     end
 
     def authenticate_with_api
