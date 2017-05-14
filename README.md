@@ -11,3 +11,9 @@
 #### Gems a serem utilizadas
 * http://www.sptrans.com.br/desenvolvedores/APIOlhoVivo/Documentacao.aspx
 * https://github.com/rest-client/rest-client
+
+#### Subindo o app
+* docker-compose build
+* docker-compose run --rm app rails db:create db:migrate
+* docker-compose up
+
