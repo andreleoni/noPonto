@@ -1,0 +1,6 @@
+<% @lines.each do |line| %>
+  <div class="line-item">
+    <h4><a href="#">Linha: <%= line["CodigoLinha"] %></a></h4>
+    <p><%= line["DenominacaoTPTS"] %> - <%= line["DenominacaoTSTP"] %></p>
+  </div>
+<% end %>

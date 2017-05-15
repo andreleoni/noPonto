@@ -20,7 +20,9 @@ module SptransModule
     #### Linhas #####
 
     def lines_to_search(search_terms)
-      @api_access.get("#{self.access_uri}/Linha/Buscar?termosBusca=#{search_terms}", {})
+      res = @api_access.get("#{self.access_uri}/Linha/Buscar?termosBusca=#{search_terms}", {})
+      lines = JSON.parse(res.body)
+      return lines
     end
 
     def lines_load_details(line_code)
