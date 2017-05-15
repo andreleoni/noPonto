@@ -92,7 +92,7 @@ RSpec.describe SptransModule::Call do
       response = instance.vehicles_position(line_code)
 
       expect(JSON.parse(response.body).is_a? Hash).to eq(true)
-      expect(response.status).to eq(200)
+      expect(response.status).to eq(222222)
     end
   end
 
