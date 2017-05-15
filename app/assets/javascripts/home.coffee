@@ -1,5 +1,10 @@
 $(document).ready ->
   ## Code Here ##
+  $('#search').on 'click', ->
+    Noponto.open_sidebar()
+
+  $('#close-sidebar').click ->
+    Noponto.close_sidebar()
 
 this.Noponto =
   show_sp_map: ->
@@ -11,6 +16,12 @@ this.Noponto =
   render_stops_on_map_by_line: ->
 
   open_sidebar: ->
+    $('#sidebar').show('fast')
+    $('#wrapper').css('margin-right', '250px')
+
+  close_sidebar: ->
+    $('#sidebar').hide('fast')
+    $('#wrapper').css('margin-right', '0')
 
   render_stops_on_sidebar: ->
 

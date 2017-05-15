@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#sidebar {
+  padding: 10px 30px 10px 10px;
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  right: 250px;
+  width: 250px;
+  height: 100%;
+  margin-right: -250px;
+  background: #f5f5f5;
+  overflow-y: scroll;
+}
+
+.line-item {
+
+  h4 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
+  }
+}

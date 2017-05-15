@@ -9,7 +9,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/header' %>
+    <%= render 'shared/sidebar' %>
+    <div id="wrapper" class="toggled">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDc1aaL4vDWVMt__WdEBG1hIuUi9nKGiAI&callback=initMap" async defer></script>
   </body>
 </html>
