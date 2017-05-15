@@ -27,8 +27,8 @@ RSpec.describe SptransModule::Call do
       search_terms = 8000
       response = instance.lines_to_search(search_terms)
 
-      expect(JSON.parse(response.body).is_a? Array).to eq(true)
-      expect(response.status).to eq(200)
+      expect(response.is_a? Array).to eq(true)
+      # expect(@res.status).to eq(200)
     end
 
     it "CarregarDetalhes - Api response == 200" do
