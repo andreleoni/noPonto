@@ -1,6 +1,6 @@
 require 'json'
 
-class LinesController < ApplicationController
+class LineController < ApplicationController
 
   def search_lines
     api = SptransModule::Call.new(ENV["TOKEN_CONS"])
