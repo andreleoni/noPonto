@@ -17,7 +17,7 @@ services:
 
   bundle:
     image: noponto_app
-    command: echo I'm a little data container, short and stout...
+    #command: echo "I'm a little data container, short and stout..."
     volumes:
       - /bundle
 
