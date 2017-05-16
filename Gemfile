@@ -9,7 +9,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-gem 'rails', '~> 5.0.1' 
+gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -21,7 +21,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'rest-client'
 gem 'httpclient'
 
 group :development, :test do

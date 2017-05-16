@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
-  
+
   post 'home/search_lines' => 'home#search_lines'
   get '/search_lines/:term', to: 'line#search_lines'
   get '/load_line_details/:line_code', to: 'line#load_line_details'
