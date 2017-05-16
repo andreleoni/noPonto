@@ -15,5 +15,11 @@ services:
     volumes:
       - '.:/usr/src/app'
 
+  bundle:
+    image: noponto_app
+    command: echo I'm a little data container, short and stout...
+    volumes:
+      - /bundle
+
 volumes:
   postgres:

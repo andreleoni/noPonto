@@ -10,6 +10,10 @@ RUN mkdir -p $INSTALL_PATH
 WORKDIR $INSTALL_PATH
 # Copia o nosso Gemfile para dentro do container
 COPY Gemfile ./
+# BUNDLE CACHE
+ENV BUNDLE_GEMFILE=$INSTALL_PATH/Gemfile \
+  BUNDLE_JOBS=2 \
+  BUNDLE_PATH=/bundle
 # Instala as Gems
 RUN bundle install
 # Copia nosso código para dentro do container
