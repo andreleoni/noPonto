@@ -1,12 +1,11 @@
 require 'spec_helper'
+require 'dotenv/load'
 require './lib/sptransapi'
-
-TOKEN_CONS = '68c53a13edefd596e8fde8044e9589a76f002fd74866a456b3313ec0815968ed'
 
 RSpec.describe SptransModule::Call do
   describe "POST test authorize" do
     it "Autenticação e Credenciais - Autenticação com sucesso" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       expect(instance.authenticate_with_api.status).to eq(200)
       expect(instance.authenticate_with_api.body).to eq("true")
@@ -22,7 +21,7 @@ RSpec.describe SptransModule::Call do
 
   describe "GET Linhas" do
     it "Buscar - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       search_terms = 8000
       response = instance.lines_to_search(search_terms)
@@ -32,7 +31,7 @@ RSpec.describe SptransModule::Call do
     end
 
     it "CarregarDetalhes - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       line_code = 8000
       response = instance.lines_load_details(line_code)
@@ -44,7 +43,7 @@ RSpec.describe SptransModule::Call do
 
   describe "GET Paradas" do
     it "Buscar - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       search_terms = 8000
       response = instance.stop_search(search_terms)
@@ -54,7 +53,7 @@ RSpec.describe SptransModule::Call do
     end
 
     it "BuscarParadasPorLinha - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       line_code = 8000
       response = instance.stop_search_by_line(line_code)
@@ -64,7 +63,7 @@ RSpec.describe SptransModule::Call do
     end
 
     it "BuscarParadasPorCorredor - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       hall_code = 8000
       response = instance.stop_search_by_hall(hall_code)
@@ -76,7 +75,7 @@ RSpec.describe SptransModule::Call do
 
   describe "GET Corredores" do
     it "Corredores - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       response = instance.halls
 
@@ -87,7 +86,7 @@ RSpec.describe SptransModule::Call do
 
   describe "GET Posição Dos Veículos" do
     it "PosicaoDosVeiculos - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
       line_code = 8000
       response = instance.vehicles_position(line_code)
 
@@ -98,7 +97,7 @@ RSpec.describe SptransModule::Call do
 
   describe "GET Previsão De Chegada" do
     it "PrevisaoDeChegada - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       stop_code = 4200953
       line_code = 8000
@@ -109,7 +108,7 @@ RSpec.describe SptransModule::Call do
     end
 
     it "Previsao De Chegada De Uma Linha em Todos os Pontos- Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       line_code = 8000
       response = instance.arrive_preview_on_stop_all_points(line_code)
@@ -119,7 +118,7 @@ RSpec.describe SptransModule::Call do
     end
 
     it "Previsao De Chegada De Todas as Linhas em um Ponto - Api response == 200" do
-      instance = SptransModule::Call.new(TOKEN_CONS)
+      instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
       stop_code = 4200953
       response = instance.arrive_preview_on_stop(stop_code)
