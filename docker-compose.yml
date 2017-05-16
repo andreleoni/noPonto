@@ -15,5 +15,10 @@ services:
     volumes:
       - '.:/usr/src/app'
 
+  bundle:
+    image: noponto_app
+    volumes:
+      - /bundle
+
 volumes:
   postgres:
