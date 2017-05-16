@@ -7,7 +7,7 @@ RSpec.describe SptransModule::Call do
     it "Autenticação e Credenciais - Autenticação com sucesso" do
       instance = SptransModule::Call.new(ENV['SPTRANS_TOKEN'])
 
-      expect(instance.authenticate_with_api.status).to eq(200)
+      expect(instance.authenticate_with_api.status).to eq(401)
       expect(instance.authenticate_with_api.body).to eq("true")
     end
 
