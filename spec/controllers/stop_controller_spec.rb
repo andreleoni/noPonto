@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe StopController, type: :controller do
   before do
     json = JSON.parse(File.read("./spec/misc/search_terms.json"))
-    @term = json['search_terms'].sample(1)
+    @term = json['search_terms'].sample
 
     json = JSON.parse(File.read("./spec/misc/lines.json"))
-    @line_code = json['lines_list'].sample(1)
+    @line_code = json['lines_list'].sample
   end
 
   describe "GET #stop_search" do
