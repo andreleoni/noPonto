@@ -6,6 +6,7 @@ class HomeController < ApplicationController
 
   def search_lines
     @lines = @api.lines_to_search(params['search_input'])
+
     respond_to do |format|
       format.js { render :index }
     end
