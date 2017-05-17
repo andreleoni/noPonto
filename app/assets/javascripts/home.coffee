@@ -1,13 +1,30 @@
 $(document).ready ->
-  ## Code Here ##
   $('#search').on 'click', ->
-    Noponto.open_sidebar()
+    search_value = $('#search_input').val()
+    history.pushState({}, "search", "#{window.location.pathname}?search=#{search_value}")
+
+    NopontoHome.open_sidebar()
 
   $('#close-sidebar').click ->
-    Noponto.close_sidebar()
+    NopontoHome.close_sidebar()
 
-this.Noponto =
+@NopontoHome =
   show_sp_map: ->
+
+  show_vehicles_position: (line_code) ->
+    $.ajax "/vehicles_position/#{line_code}",
+    type: 'GET'
+    dataType: 'json'
+    success: (response) ->
+      search_hour = response['hr']
+
+      response['vs'].forEach (vehicle) ->
+        vehicle_acessibility = vehicle['a']
+        vehicle_prefix = vehicle['p']
+        vehicle_py = vehicle['py']
+        vehicle_px = vehicle['px']
+
+        NopontoMap.show_vehicles_position_on_map(search_hour, line_code, vehicle_acessibility, vehicle_prefix, vehicle_py, vehicle_px)
 
   search_route_by_line: ->
 

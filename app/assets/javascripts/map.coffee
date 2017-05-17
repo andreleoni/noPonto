@@ -7,3 +7,46 @@ map = undefined
       lng: -46.634753
     zoom: 12)
   return
+
+@NopontoMap =
+  show_vehicles_position_on_map: (search_hour, line_code, vehicle_acessibility, vehicle_prefix, vehicle_py, vehicle_px) ->
+    location = new (google.maps.LatLng)(vehicle_py, vehicle_px)
+
+    marker = new (google.maps.Marker)(
+      position: location
+      map: map
+      icon: NopontoMap.createImage('../marker.png')
+      animation: google.maps.Animation.DROP
+      draggable: false)
+
+    if vehicle_acessibility == true
+      vehicle_acessibility_text = "Possui acessibilidade <img src='with-acessibility.png' class='acessibility-icon'> </img>"
+    else
+      vehicle_acessibility_text = "Não possui acessibilidade <img src='withthout-acessibility.png'> </img>"
+
+    infowindow = new (google.maps.InfoWindow)(
+      content: "
+        Ultima Atualização: #{search_hour}hrs
+        <br> <b> Linha: </b> #{line_code}
+        <br> <b> Identificador do Veículo: </b> #{vehicle_prefix}
+        <br> <b> #{vehicle_acessibility_text} </b>
+        <img tag
+        ")
+
+    google.maps.event.addListener marker, 'click', ->
+      infowindow.open map, marker
+      return
+    return
+
+  createInfoWindow: (text) ->
+    infowindow = new (google.maps.InfoWindow)(content: text)
+    infowindow
+
+  createImage: (url) ->
+    image =
+      url: url
+      size: new (google.maps.Size)(32, 32)
+      origin: new (google.maps.Point)(0, 0)
+      anchor: new (google.maps.Point)(0, 32)
+      
+    image
