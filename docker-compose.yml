@@ -14,6 +14,10 @@ services:
       - '3000:3000'
     volumes:
       - '.:/usr/src/app'
+    volumes_from:
+      - bundle
+    env_file:
+      - '.env'
 
   bundle:
     image: noponto_app
