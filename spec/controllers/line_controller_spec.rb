@@ -23,4 +23,10 @@ RSpec.describe LineController, type: :controller do
     end
   end
 
+  # describe "GET #vehicles_position" do
+  #   it "Get position of vehicles of the lines == 200" do
+  #     get :vehicles_position, :params => { :line_code => @line_code }
+  #     expect(response.is_a? Array).to eql(true)
+  #   end
+  # end
 end
