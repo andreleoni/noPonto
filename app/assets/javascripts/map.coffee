@@ -22,7 +22,7 @@ map = undefined
     if vehicle_acessibility == true
       vehicle_acessibility_text = "Possui acessibilidade <img src='with-acessibility.png' class='acessibility-icon'> </img>"
     else
-      vehicle_acessibility_text = "Não possui acessibilidade <img src='withthout-acessibility.png'> </img>"
+      vehicle_acessibility_text = "Não possui acessibilidade <img src='without-acessibility.png'> </img>"
 
     infowindow = new (google.maps.InfoWindow)(
       content: "
