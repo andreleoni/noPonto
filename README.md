@@ -6,7 +6,9 @@
 
 
 ## What is noPonto?
-The aim of the project is to make the access to the information easy to people who want to move by bus in São Paulo. We maintain everything simple and clear. Typing where you want to go in the search box you get all the information you need to reach the destination.
+
+The aim of the project is to make access to the information easy for people who want to take the bus in São Paulo. We delivery everything in a simple and clear way. Type where you want to go in the search box and you get all the information you need to reach the destination.
+
 
 The app can be accessed by any device on [this](http://noponto.herokuapp.com/) link
 
