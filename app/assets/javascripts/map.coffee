@@ -19,7 +19,7 @@ map = undefined
       animation: google.maps.Animation.DROP
       draggable: false)
 
-    if vehicle_acessibility == true
+    if vehicle_acessibility
       vehicle_acessibility_text = "Possui acessibilidade <img src='with-acessibility.png' class='acessibility-icon'> </img>"
     else
       vehicle_acessibility_text = "Não possui acessibilidade <img src='without-acessibility.png'> </img>"
@@ -30,6 +30,29 @@ map = undefined
         <br> <b> Linha: </b> #{line_code}
         <br> <b> Identificador do Veículo: </b> #{vehicle_prefix}
         <br> <b> #{vehicle_acessibility_text} </b>
+        <img tag
+        ")
+
+    google.maps.event.addListener marker, 'click', ->
+      infowindow.open map, marker
+      return
+    return
+
+  show_bus_stops: (marker_hash) ->
+    location = new (google.maps.LatLng)(marker_hash.Latitude, marker_hash.Longitude)
+
+    marker = new (google.maps.Marker)(
+      position: location
+      map: map
+      icon: NopontoMap.createImage('../bus-station.png')
+      animation: google.maps.Animation.DROP
+      draggable: false)
+
+    infowindow = new (google.maps.InfoWindow)(
+      content: "
+        Nome: #{marker_hash.Nome}hrs
+        <br> <b> Codigo de Parada: </b> #{marker_hash.CodigoParada}
+        <br> <b> Endereco </b> #{marker_hash.Endereco}
         <img tag
         ")
 
