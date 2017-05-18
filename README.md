@@ -1,6 +1,7 @@
 ![noPontoApp](http://noponto.herokuapp.com/header.png)
 
-
+![ruby](https://img.shields.io/badge/Ruby-2.3.4-red.svg)
+![rails](https://img.shields.io/badge/Rails-5.0.1-red.svg)
 [![Code Climate](https://codeclimate.com/github/andreleoni/noPonto/badges/gpa.svg)](https://codeclimate.com/github/andreleoni/noPonto) [![Issue Count](https://codeclimate.com/github/andreleoni/noPonto/badges/issue_count.svg)](https://codeclimate.com/github/andreleoni/noPonto)
 
 
