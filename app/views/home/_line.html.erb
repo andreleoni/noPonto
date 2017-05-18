@@ -1,7 +1,7 @@
 <% if @lines.present? %>
   <% @lines.each do |line| %>
     <div class="line-item">
-      <h4> <%= link_to "Linha: #{line['CodigoLinha']}", "#", onclick: "NopontoHome.show_vehicles_position(#{line['CodigoLinha']})", remote: true %></h4>
+      <h4> <%= link_to "Linha: #{line['CodigoLinha']}", "", onclick: "NopontoHome.show_vehicles_position(#{line['CodigoLinha']});", remote: true %></h4>
       <p><%= line["DenominacaoTPTS"] %> - <%= line["DenominacaoTSTP"] %></p>
     </div>
   <% end %>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded main-navbar">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,8 +11,12 @@
 
     </ul>
     <%= form_tag home_search_lines_url, method: :post, class: "form-inline my-2 my-lg-0", remote: true do %>
-      <%= text_field_tag(:search_input, params[:search], placeholder: "Search", class: "form-control mr-sm-2" ) %>
-      <%= submit_tag 'Buscar', id: 'search', class: 'btn btn-success my-2 my-sm-0' %>
+      <div class="input-group">
+        <%= text_field_tag(:search_input, params[:search], placeholder: "Search", class: "form-control") %>
+        <span class="input-group-btn">
+          <%= submit_tag 'Buscar', id: 'search', class: 'btn btn-success my-2 my-sm-0' %>
+        </span>
+      </div>
     <% end %>
   </div>
 </nav>
