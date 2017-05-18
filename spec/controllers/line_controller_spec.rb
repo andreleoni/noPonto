@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'json'
 
 RSpec.describe LineController, type: :controller do
   before do
