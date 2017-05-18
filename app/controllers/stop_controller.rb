@@ -6,7 +6,9 @@ class StopController < ApplicationController
 
   def stop_search_by_line
     response = @api.stop_search_by_line(params[:line_code])
-    render json: response
+    respond_to do |format|
+      format.js { render json: JSON.parse(response.body) }
+    end
   end
 
 end
