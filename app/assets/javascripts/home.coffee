@@ -11,6 +11,10 @@ $(document).ready ->
 @NopontoHome =
   show_sp_map: ->
 
+  line_click: (line_code) ->
+    this.render_stops_on_map_by_line(line_code)
+    this.show_vehicles_position(line_code)
+
   show_vehicles_position: (line_code) ->
     $.ajax "/vehicles_position/#{line_code}",
     type: 'GET'
@@ -30,7 +34,14 @@ $(document).ready ->
 
   render_route_on_map: ->
 
-  render_stops_on_map_by_line: ->
+  render_stops_on_map_by_line: (line_code) ->
+    $.ajax "/stop_search_by_line/#{line_code}",
+    type: 'GET'
+    dataType: 'json'
+    success: (response) ->
+      if response.length > 0
+        response.forEach (bus_stop) ->
+          NopontoMap.show_bus_stops(bus_stop)
 
   open_sidebar: ->
     $('#sidebar').show('fast')
