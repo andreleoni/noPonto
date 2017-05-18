@@ -1,5 +1,4 @@
 class LineController < ApplicationController
-
   def search_lines
     response = @api.lines_to_search(params[:term])
     render json: response
