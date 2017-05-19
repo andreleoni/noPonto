@@ -8,6 +8,12 @@ $(document).ready ->
   $('#close-sidebar').click ->
     NopontoHome.close_sidebar()
 
+  $('#items').click (event) ->
+    if event.target.id != undefined && event.target.id != ""
+      NopontoHome.line_click(event.target.id)
+      
+    return false
+
 @NopontoHome =
   show_sp_map: ->
 
