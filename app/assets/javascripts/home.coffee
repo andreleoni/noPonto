@@ -11,7 +11,7 @@ $(document).ready ->
   $('#items').click (event) ->
     if event.target.id != undefined && event.target.id != ""
       NopontoHome.line_click(event.target.id)
-      
+
     return false
 
 @NopontoHome =
@@ -46,8 +46,12 @@ $(document).ready ->
     dataType: 'json'
     success: (response) ->
       if response.length > 0
+        lineCoordinates = []
         response.forEach (bus_stop) ->
           NopontoMap.show_bus_stops(bus_stop)
+          lineCoordinates.push(new google.maps.LatLng(bus_stop.Latitude, bus_stop.Longitude))
+
+        NopontoMap.simple_lines(lineCoordinates)
 
   open_sidebar: ->
     $('#sidebar').show('fast')
@@ -58,22 +62,3 @@ $(document).ready ->
     $('#wrapper').css('margin-right', '0')
 
   render_stops_on_sidebar: ->
-
-    # $.ajax '/exchange',
-    # type: 'POST'
-    # dataType: 'json'
-    # data: {
-    #         currency: $("#currency").val(),
-    #         currency_destination: $("#currency_destination").val(),
-    #         quantity: $("#quantity").val()
-    #       }
-    #
-    # error: (jqXHR, textStatus, errorThrown) ->
-    #   alert textStatus
-    #   $('.refresh-icon').fadeOut('slow')
-    #
-    # success: (data, text, jqXHR) ->
-    #   $('#result').val(data.value)
-    #   $('.refresh-icon').fadeOut('slow')
-    #
-    # return false

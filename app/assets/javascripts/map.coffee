@@ -5,7 +5,8 @@ map = undefined
     center:
       lat: -23.542010
       lng: -46.634753
-    zoom: 12)
+    zoom: 12,
+    apTypeId: google.maps.MapTypeId.ROADMAP)
   return
 
 @NopontoMap =
@@ -73,3 +74,37 @@ map = undefined
       anchor: new (google.maps.Point)(0, 32)
 
     image
+
+  simple_lines: (coordinates, index) ->
+    i = 0
+    directionsService = new (google.maps.DirectionsService)
+    directionsDisplay = new (google.maps.DirectionsRenderer)(suppressMarkers: true)
+    directionsDisplay.setMap map
+
+    request = travelMode: google.maps.TravelMode.DRIVING
+    i = 0
+
+    while i < coordinates.length
+      marker = new (google.maps.Marker)(
+        position: coordinates[i]
+        map: map)
+
+      if i == 0
+        request.origin = marker.getPosition()
+
+      else if i == coordinates.length - 1
+        request.destination = marker.getPosition()
+
+      else
+        if !request.waypoints
+          request.waypoints = []
+
+        request.waypoints.push
+          location: marker.getPosition()
+          stopover: true
+
+      i++
+
+    directionsService.route request, (result, status) ->
+      if status == google.maps.DirectionsStatus.OK
+        directionsDisplay.setDirections result
