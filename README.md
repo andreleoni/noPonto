@@ -34,37 +34,40 @@ To contribute follow the steps below:
 git clone your-foked-repository
 cd your-foked-repository
 ```
-### 3. Run docker-composer build
+### 3. Preparing Ambient
+- Rename the file of ambient variables from .env.example to .env.
+
+### 4. Run docker-composer build
 ```
 docker-compose build
 ```
-### 4. Run migrations
+### 5. Run migrations
 ```
 docker-compose run --rm app rake db:create db:migrate
 ```
-### 5. Run tests
+### 6. Run tests
 ```
 docker-compose run --rm app rspec
 ```
-### 6. Start the app
+### 7. Start the app
 ```
 docker-compose up
 ```
-### 7. Add the original repository as a source in your local repository
+### 8. Add the original repository as a source in your local repository
 ```
 git remote add upstream https://github.com/andreleoni/noPonto
 ```
-### 8. Sync your repository with the original
+### 9. Sync your repository with the original
 ```
 git fetch upstream
 ```
-### 9. Update local repository
+### 10. Update local repository
 ```
 git checkout master
 git merge upstream/master
 ```
-### 10. Create a new branch
+### 11. Create a new branch
 ```
 git checkout -b my-new-feature
 ```
-### 11. Make a pull request
+### 12. Make a pull request
