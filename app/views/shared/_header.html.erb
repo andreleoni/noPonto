@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"> </ul>
 
-    <%= form_tag home_search_lines_url, id: 'search-line-form', method: :post, class: "form-inline my-2 my-lg-0 my-sm-0", remote: true do %>
+    <%= form_tag home_search_lines_url, id: 'search-line-form', method: :get, class: "form-inline my-2 my-lg-0 my-sm-0", remote: true do %>
       <div class="input-group">
         <%= text_field_tag(:search_input, params[:search], placeholder: "Search", class: "form-control") %>
         <span class="input-group-btn">
