@@ -35,8 +35,13 @@ class Line
         response
 
   map_route: ->
-    $.ajax "/map_route/?origin=#{@origin}&destination=#{@destination}&line_code=#{@code}",
+    $.ajax "/map_route",
       type: 'GET'
+      data: {
+        origin: @origin
+        destination: @destination
+        line_code: @code
+      }
       dataType: 'json'
       success: (response) ->
         return response

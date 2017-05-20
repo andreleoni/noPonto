@@ -82,14 +82,16 @@ map = undefined
 
     request = travelMode: google.maps.TravelMode.DRIVING
 
-    $.when(line.map_route()).done (route) ->
-      request.origin = new google.maps.LatLng(route.origin.lat, route.origin.lng)
-      request.destination = new google.maps.LatLng(route.destination.lat, route.destination.lng)
+    $.when(line.map_route()).done (r) ->
+      request.origin = new google.maps.LatLng(r.origin.lat, r.origin.lng)
+      request.destination = new google.maps.LatLng(r.destination.lat, r.destination.lng)
 
       request.waypoints = []
 
-      for stop in route.stops
-        request.waypoints.push(location: new google.maps.LatLng(stop.Latitude, stop.Longitude), stopover: false)
+      for stop in r.stops
+        request.waypoints.push
+          location: new google.maps.LatLng(stop.Latitude, stop.Longitude)
+          stopover: false
 
       directionsService.route request, (result, status) ->
         if status == google.maps.DirectionsStatus.OK
