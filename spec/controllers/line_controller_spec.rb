@@ -29,4 +29,11 @@ RSpec.describe LineController, type: :controller do
       expect(response.status).to eql(200)
     end
   end
+
+  describe "GET #map_route" do
+    it "Gets the origin, destination and stop from a line == 200" do
+      get :map_route, :params => { :line_code => @line_code, :origin => @term, :destination => @term}
+      expect(response.status).to eql(200)
+    end
+  end
 end
