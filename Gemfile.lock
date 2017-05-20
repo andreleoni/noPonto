@@ -42,7 +42,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
-    autoprefixer-rails (7.1.1)
+    autoprefixer-rails (7.1.0)
       execjs
     bindex (0.5.0)
     bootstrap (4.0.0.alpha6)
@@ -152,7 +152,7 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    sass (3.4.24)
+    sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
