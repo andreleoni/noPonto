@@ -20,7 +20,7 @@ module GoogleMapsModule
     def get_lat_long_by_geocode(address)
       uri = URI.encode("#{self.access_uri}/geocode/json?address=#{address}")
       res = @api_access.get(uri)
-      lat_long = JSON.parse(res.body)['results'][0]['geometry']['location']
+      JSON.parse(res.body)['results'][0]['geometry']['location']
     end
   end
 end

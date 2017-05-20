@@ -7,6 +7,10 @@ engines:
     enabled: true
   coffeelint:
     enabled: true
+    checks:
+        max_line_length:
+            enabled: false
+
   duplication:
     enabled: true
     config:
@@ -19,6 +23,8 @@ engines:
     enabled: true
   rubocop:
     enabled: true
+
+  
 ratings:
   paths:
   - Gemfile.lock
