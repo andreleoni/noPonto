@@ -9,20 +9,22 @@ services:
   app:
     depends_on:
       - 'postgres'
+      - 'box'
     build: .
+    command: bash start
     ports:
       - '3000:3000'
     volumes:
-      - '.:/usr/src/app'
+      - '.:/app'
     volumes_from:
-      - bundle
+      - box
     env_file:
       - '.env'
 
-  bundle:
-    image: noponto_app
+  box:
+    image: busybox
     volumes:
-      - /bundle
+      - /box
 
 volumes:
   postgres:

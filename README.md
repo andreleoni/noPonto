@@ -39,19 +39,20 @@ cd your-foked-repository
 
 ### 4. Run docker-composer build
 ```
-docker-compose build
+docker-compose up --build
 ```
-### 5. Run migrations
+### 5. Run migrations (Os containers terão que estar up para executar o comando abaixo)
 ```
+docker-compose up
 docker-compose run --rm app rake db:create db:migrate
 ```
 ### 6. Run tests
 ```
-docker-compose run --rm app rspec
+docker-compose exec app bundle exec spring rspec
 ```
 ### 7. Start the app
 ```
-docker-compose up
+docker-compose up --build
 ```
 ### 8. Add the original repository as a source in your local repository
 ```
