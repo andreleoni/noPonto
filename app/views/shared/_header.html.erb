@@ -2,13 +2,21 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="<%= root_url %>">
     <img src="/header.png" alt="noPonto, rota de onibus, parada" class="brand-image">
   </a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"> </ul>
-    <a href = "/favorites" > Favorites </a>
+    <% unless current_user %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signup-modal" style="margin-right: 15px;">
+        Linhas favoritas
+      </button>
+    <% else %>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#favorites-modal" style="margin-right: 15px;">
+        Linhas favoritas
+      </button>
+    <% end %>
     <%= form_tag home_search_lines_url, id: 'search-line-form', method: :post, class: "form-inline my-2 my-lg-0 my-sm-0", remote: true do %>
       <div class="input-group">
         <%= text_field_tag(:search_input, params[:search], placeholder: "Search", class: "form-control") %>

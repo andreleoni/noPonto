@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-
+    @favorites = current_user.favorites if current_user
   end
 
   def search_lines

@@ -1,0 +1,34 @@
+<!-- Modal -->
+<div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signup-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signup-modal">Signup</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= link_to "Facebook signup", user_facebook_omniauth_authorize_path %>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="favorites-modal" tabindex="-1" role="dialog" aria-labelledby="favorites-modal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="favorites-modal">Your favorites</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @favorites.present? %>
+          <% @favorites.each do |fav| %>
+            <%= link_to fav.name, "#" %>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+</div>
