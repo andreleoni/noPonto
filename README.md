@@ -44,7 +44,7 @@ docker-compose up --build
 ### 5. Run migrations (Os containers terão que estar up para executar o comando abaixo)
 ```
 docker-compose up
-docker-compose run --rm app rake db:create db:migrate
+docker-compose run --rm app bundle exec rake db:create db:migrate
 ```
 ### 6. Run tests
 ```
