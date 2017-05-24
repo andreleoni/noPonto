@@ -47,3 +47,15 @@
 #map {
   height: calc(100vh - 60px);
 }
+
+.fave {
+  width: 70px;
+  height: 50px;
+  background: url('/favorite_icon.png') no-repeat;
+  background-position: 0 0;
+}
+
+.fave:hover {
+  background-position: -3519px 0;
+  transition: background 1s steps(55);
+}
