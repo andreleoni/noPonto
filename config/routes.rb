@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :favorites, only: "index" do
+  resources :favorites, only: ["index", "destroy"] do
     collection do
       post :toggle_favorite
     end
