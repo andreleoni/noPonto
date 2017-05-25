@@ -14,8 +14,14 @@ $(document).ready ->
 
   $('#items').click (event) ->
     if event.target.id != undefined && event.target.id != ""
-      $.when(Line.find(searched_lines, event.target.id)).done (line) ->
-        NopontoHome.line_click(line, event.target.id)
+      if event.target.id == "toggle-favorite-line"
+        favorite_id = $(event.target).attr("data-favoriteId")
+        is_favorite = $(event.target).attr("data-isFavorite")
+        NopontoFavorites.toggle_favorite(favorite_id, is_favorite)
+
+      else
+        $.when(Line.find(searched_lines, event.target.id)).done (line) ->
+          NopontoHome.line_click(line, event.target.id)
 
     return false
 
