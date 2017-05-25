@@ -28,6 +28,14 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroy
+    if Favorite.find(params[:id]).destroy
+      render json: { status: "success" }
+    else
+      render json: { status: "failure" }
+    end
+  end
+
   # def new
   #   @favorite = Favorite.new
   # end
@@ -63,13 +71,6 @@ class FavoritesController < ApplicationController
   #   end
   # end
   #
-  # def destroy
-  #   @favorite.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to favorites_url, notice: 'Favorite was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
     def authorize_changes_or_delete

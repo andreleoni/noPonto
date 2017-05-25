@@ -15,9 +15,11 @@
         <% end %>
 
       </div>
+    </div>
   </div>
 </div>
 
+<!-- Modal -->
 <div class="modal fade" id="favorites-modal" tabindex="-1" role="dialog" aria-labelledby="favorites-modal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -28,11 +30,16 @@
         </button>
       </div>
       <div class="modal-body">
-        <% if @favorites.present? %>
-          <% @favorites.each do |fav| %>
-            <%= link_to fav.name, "#" %>
+        <ul class="list-group">
+          <% if @favorites.present? %>
+            <% @favorites.each do |fav| %>
+              <li class="list-group-item justify-content-between" id="favorite_<%= fav.id %>">
+                <%= link_to fav.name, "#", onclick: "NopontoHome.line_click('', #{fav.name}); return false;", 'data-dismiss' => "modal", id: "closemodal" %>
+                <%= link_to "delete", "#", onclick: "NopontoFavorites.delete_favorite(#{fav.id})" %>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
+        </ul>
       </div>
     </div>
   </div>
