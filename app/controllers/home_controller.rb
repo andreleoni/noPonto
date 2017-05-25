@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
   def index
     @favorites = current_user.favorites if current_user
   end
@@ -7,13 +6,15 @@ class HomeController < ApplicationController
   def search_lines
     @lines = @api.lines_to_search(params['search_input'])
 
-    @user_favorites = Favorite.where(user_id: current_user.id).pluck(:name) if current_user.present?
+    if current_user.present?
+      @user_favorites = Favorite.where(user_id: current_user.id).pluck(:name)
 
-    @lines.each_with_index do |r, i|
-      if @user_favorites.include?(r["CodigoLinha"].to_s)
-        @lines[i].merge!({ "isFavorite" => "true" })
-      else
-        @lines[i].merge!({ "isFavorite" => "false" })
+      @lines.each_with_index do |r, i|
+        if @user_favorites.include?(r["CodigoLinha"].to_s)
+          @lines[i].merge!({ "isFavorite" => "true" })
+        else
+          @lines[i].merge!({ "isFavorite" => "false" })
+        end
       end
     end
 
