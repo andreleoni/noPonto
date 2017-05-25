@@ -1,7 +1,14 @@
 <% if @lines.present? %>
   <% @lines.each do |line| %>
     <div class="line-item">
-      <h4> <%= link_to "Linha: #{line['CodigoLinha']}", "#", id: "#{line['CodigoLinha']}", remote: true %></h4>
+      <h4>
+        <% if current_user.present? %>
+          <div class="fa fa-heart" style="display: inline-block; width: 20px; height: 20px;" id="toggle-favorite-line" data-isFavorite="<%= line['isFavorite'] || false %>" data-favoriteId="<%= line['CodigoLinha'] %>">
+          </div>
+        <% end %>
+
+         <%= link_to "Linha: #{line['CodigoLinha']}", "#", id: "#{line['CodigoLinha']}", remote: true %>
+       </h4>
       <p><%= line["DenominacaoTPTS"] %> - <%= line["DenominacaoTSTP"] %></p>
     </div>
   <% end %>

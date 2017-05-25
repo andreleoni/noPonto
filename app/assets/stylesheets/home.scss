@@ -47,3 +47,29 @@
 #map {
   height: calc(100vh - 60px);
 }
+
+.favorite-icon {
+  width: 20px;
+  height: 20px;
+  color: #f2f2f2
+}
+
+.favorite-icon:before {
+  content: "\e005";
+}
+
+#toggle-favorite-line[data-isFavorite="false"] {
+  color: #989898;
+}
+
+#toggle-favorite-line[data-isFavorite="true"] {
+  color: #ff7e7e;
+}
+
+#toggle-favorite-line:hover {
+  color: red;
+}
+
+#toggle-favorite-line:active {
+  transform: translateY(1px)
+}
